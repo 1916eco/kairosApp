@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+  
+  <ion-title>Cookbook</ion-title>
+  <ion-avatar slot="end">
+  <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+</ion-avatar>
+ </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="clickedSearch()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search Cookbook"></ion-searchbar>
+    <ion-item>
+  <ion-label position="floating">Filter</ion-label>
+  <ion-select>
+    <ion-select-option value="">No filter</ion-select-option>
+    <ion-select-option value="easy">Easy meals</ion-select-option>
+    <ion-select-option value="medium" selected>Medium meals</ion-select-option>
+    <ion-select-option value="hard">Hard meals</ion-select-option>
+    <ion-select-option value="spanish">Spanish meals</ion-select-option>
+
+  </ion-select>
+</ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+</ion-content>

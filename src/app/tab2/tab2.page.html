@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+  
+  <ion-title>Ingredients</ion-title>
+ </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="clickedSearch()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search Ingredients"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+<ion-list>
+  <ion-item>
+    <ion-label>Pepper</ion-label>
+    <ion-label slot="end">Qty - 99</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Salt</ion-label>
+    <ion-label slot="end">Qty - 99</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Vegetables</ion-label>
+    <ion-label slot="end">Qty - 99</ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>

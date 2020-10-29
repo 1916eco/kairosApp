@@ -1,0 +1,7 @@
+{
+  "name": "kairosApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
