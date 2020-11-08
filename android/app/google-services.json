@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "591664147320",
+    "firebase_url": "https://kairosapp-444bb.firebaseio.com",
+    "project_id": "kairosapp-444bb",
+    "storage_bucket": "kairosapp-444bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591664147320:android:0b5bd6b6199c5b2783f68d",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591664147320-2kq1sqm7dc22rgkvl81avmhcq1p0iib5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "6167dc19b3c1d73a82ef853496dcb51fa8f7d479"
+          }
+        },
+        {
+          "client_id": "591664147320-47k8nslfjfol7goqk06th7s8r5feb4uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKR4jWREcUJWdwSpUfHoaFSVrcYdKBytI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591664147320-47k8nslfjfol7goqk06th7s8r5feb4uh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,17 @@
-ion-slides {
-  height: 30%;
+// .filtering {
+//   height: 0%;
+// }
+.poster-col {
+  height: 200px;
+  img {
+    border-radius: 20px;
+  }
+}
+.rate {
+  font-size: 14px;
+  padding-top: 4px;
+
+  ion-icon {
+    color: gold;
+  }
 }
