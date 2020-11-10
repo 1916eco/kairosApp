@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start" size="small">Add Ingredients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input [(ngModel)]="value" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantity</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+    
+<ion-button color="primary">Submit</ion-button>
+  </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" color="primary" (click)="closeModal()">Close</ion-button>
+  </ion-toolbar>
+</ion-footer>
