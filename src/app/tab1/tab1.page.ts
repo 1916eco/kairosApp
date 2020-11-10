@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -7,11 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private nav:NavController) {}
 
   slideOpts = {
     slidesPerView: 2,
     centeredSlides: true,
     loop: true,
   };
+  pushPage(){
+    this.nav.navigateForward('/tab3.page')
+  }
 }
