@@ -13,11 +13,15 @@ export class ModalPage  {
 
 
   closeModal(){
-    this.modalController.dismiss()
+    this.modalController.dismiss(null,'cancel')
   }
 
   addIngredent(){
-    console.log(this.nameInput.value)
-    console.log(this.ingredientInput.value)
+    var obj ={
+    newIngredientsName: this.nameInput.value,
+    newIngredientsQty: this.ingredientInput.value
+    }
+    this.modalController.dismiss(obj,'Done')
+
   }
 }

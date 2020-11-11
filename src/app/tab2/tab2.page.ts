@@ -19,6 +19,9 @@ export class Tab2Page {
       qty: 99
     }
   ];
+  newIngredientsFunc(obj){
+
+  }
 
   constructor(private modalController: ModalController) {}
 
@@ -26,7 +29,15 @@ export class Tab2Page {
       const modal = await this.modalController.create({
         component: ModalPage,
         swipeToClose: true,
+        // componentProps:{name: ingredient.name, balance: ingredient.qty}
       });
-      modal.present();
+      await modal.present()
+
+      await modal.onWillDismiss().then((data) =>{
+        //const ingredient = new ingredients(data.newIngredientsName,data.newIngredientsQty);
+        var newObje = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty}
+        this.ingredients.push(newObje)
+        console.log(data.data.newIngredientsName)
+      });
     }
 }
