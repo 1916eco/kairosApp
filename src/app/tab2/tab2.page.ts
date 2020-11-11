@@ -9,6 +9,16 @@ import { ModalPage } from '../modal/modal.page';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  ingredients = [
+    {
+      name: "Pepper",
+      qty: 99
+    },
+    {
+      name: "Salt",
+      qty: 99
+    }
+  ];
 
   constructor(private modalController: ModalController) {}
 

@@ -14,24 +14,22 @@
 
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
   <div id="list" align="center"> 
       
   </div>
 <ion-list>
-  <ion-item>
-    <ion-label>Pepper</ion-label>
-    <ion-label slot="end">Qty - 99</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>Salt</ion-label>
-    <ion-label slot="end">Qty - 99</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>Potatoes</ion-label>
-    <ion-label slot="end">Qty - 11</ion-label>
+
+  <ion-item *ngFor="let ingredient of ingredients">
+    <ion-label>
+    <h2>{{ingredient.name}}</h2>
+    </ion-label>
+    <ion-label slot="end">
+    <h2>{{ingredient.qty | number}}</h2>
+    </ion-label>
   </ion-item>
 </ion-list>
+
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button (click)="openModal()">  
     <ion-icon size="large" name="add"></ion-icon>

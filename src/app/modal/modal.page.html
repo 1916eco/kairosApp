@@ -7,14 +7,14 @@
 <ion-content>
     <ion-item>
       <ion-label>Name</ion-label>
-      <ion-input [(ngModel)]="value" clearInput></ion-input>
+      <ion-input [formControl]="nameInput"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Quantity</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input  type="number" [formControl]="ingredientInput"></ion-input>
     </ion-item>
     
-<ion-button expand="full" color="primary">Submit</ion-button>
+<ion-button expand="full" [disabled]="ingredientInput.invalid||nameInput.invalid" color="primary" (click)="addIngredent()" >Submit</ion-button>
   </ion-content>
 
 <ion-footer>
