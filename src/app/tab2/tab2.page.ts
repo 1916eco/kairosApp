@@ -9,6 +9,8 @@ import { ModalPage } from '../modal/modal.page';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
+  i = 0
   ingredients = [
     {
       name: "Pepper",
@@ -19,8 +21,12 @@ export class Tab2Page {
       qty: 99
     }
   ];
-  newIngredientsFunc(obj){
 
+
+  removeIngredient(id){
+    const index = this.ingredients.findIndex(ingredient => ingredient.name === id);
+    
+    this.ingredients.splice(index,1);
   }
 
   constructor(private modalController: ModalController) {}
