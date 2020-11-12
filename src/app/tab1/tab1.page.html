@@ -33,8 +33,9 @@
     <ion-label slot="start" size="medium">History</ion-label>
   </ion-toolbar>
 
+  
+  <!-- From Here -->
     <ion-slides  [options]="slideOpts">
-
       <ion-slide>
         <ion-row>
         <ion-col size="12" class="poster-col">
@@ -76,14 +77,28 @@
 </ion-col>
 </ion-row>
 </ion-slide>
+</ion-slides>
+<!-- To Here -->
+
+<ion-toolbar>
+  <ion-label slot="start" size="small">Using Ingredients</ion-label>
+</ion-toolbar>
 
 
-    </ion-slides>
+<ion-slides  [options]="slideOpts">
+    <ion-slide *ngFor="let recipe of recipes">
+      <ion-row>
+      <ion-col size="12" class="poster-col">
+        <img class="poster" src="{{recipe.recipe.image}}" alt="">
+      </ion-col>        
+      <ion-col size="12">
+      <h5 class="ion-no-margin">{{recipe.recipe.label}}</h5>
+    </ion-col>
+  </ion-row>
+    </ion-slide>
+  </ion-slides>
 
-    <ion-toolbar>
-      <ion-label slot="start" size="small">Using Ingredients</ion-label>
-    </ion-toolbar>
-    <ion-slides  [options]="slideOpts">
+    <!-- <ion-slides  [options]="slideOpts">
 
       <ion-slide>
         <ion-row>
@@ -128,6 +143,6 @@
 </ion-slide>
 
 
-    </ion-slides>
+    </ion-slides> -->
   </ion-content>
 </ion-content>
