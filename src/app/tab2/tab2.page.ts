@@ -64,6 +64,7 @@ export class Tab2Page {
   removeIngredient(id){
     const index = this.ingredients.findIndex(inn => inn.name === id);    
     this.ingredients.splice(index,1);
+    this.search.value='';
   } 
 
 //Modal opener
