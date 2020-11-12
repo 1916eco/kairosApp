@@ -10,7 +10,7 @@
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-searchbar placeholder="Search Ingredients"></ion-searchbar>
+    <ion-searchbar #ingredientsSearch debounce="200" placeholder="Search Ingredients" (ionChange)="_ionChange($event)" animated></ion-searchbar>
 
   </ion-toolbar>
 </ion-header>
@@ -18,7 +18,7 @@
   <div id="list" align="center"> 
       
   </div>
-<ion-list *ngFor="let ingredient of ingredients">
+<ion-list *ngFor="let ingredient of searchedItem">
 <ion-item-sliding>
   <ion-item >
     <ion-label>

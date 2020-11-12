@@ -30,10 +30,6 @@ export class Tab1Page {
   async getRecipes() {
     var appId = "66e70773"
     var appKey = "cc03af7094cde3a4ce6cf1b91e277f6c"
-    // return this.http.get(`https://api.edamam.com/search?q=chicken&app_id=${appId}&app_key=${appKey}`)
-    // .pipe(
-    //   map(results => results['Search'])
-    // );
     const response = await fetch(`https://api.edamam.com/search?q=chicken&app_id=${appId}&app_key=${appKey}`);
     const data = await response.json();
     this.recipes = data.hits;

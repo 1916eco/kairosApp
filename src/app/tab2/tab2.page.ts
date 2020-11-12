@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {ModalController} from '@ionic/angular';
+import { Component,ViewChild} from '@angular/core';
+import {IonSearchbar, ModalController} from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 
 
@@ -9,8 +9,15 @@ import { ModalPage } from '../modal/modal.page';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  
+  @ViewChild('ingredientsSearch', { static: false }) search: IonSearchbar;
+  
+  //public ingredients: Array<Object> = [];
+  public searchedItem: any;
   i = 0
+  constructor(private modalController: ModalController) {
+    this.searchedItem = this.ingredients;
+  }
   ingredients = [
     {
       name: "Pepper",
@@ -19,20 +26,47 @@ export class Tab2Page {
     {
       name: "Salt",
       qty: 99
-    }
+    },    
+    {
+      name: "Carrots",
+      qty: 15
+    },
+    {
+      name: "Potatoes",
+      qty: 20
+    },
   ];
   clickedSearch(){
     console.log("Clicked Search")
   }
 
-  removeIngredient(id){
-    const index = this.ingredients.findIndex(ingredient => ingredient.name === id);
-    
-    this.ingredients.splice(index,1);
+  //searchbar functionality 
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.search.setFocus();
+    });
   }
 
-  constructor(private modalController: ModalController) {}
+  //searchbar functionality 
+  _ionChange(event) {
+    
+    const val = event.target.value;
 
+    this.searchedItem = this.ingredients;
+    if (val && val.trim() != '') {
+      this.searchedItem = this.searchedItem.filter((item: any) => {
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
+
+  //removing the ingredients from the list
+  removeIngredient(id){
+    const index = this.ingredients.findIndex(inn => inn.name === id);    
+    this.ingredients.splice(index,1);
+  } 
+
+//Modal opener
   async openModal(){
       const modal = await this.modalController.create({
         component: ModalPage,
