@@ -21,7 +21,9 @@ export class Tab2Page {
       qty: 99
     }
   ];
-
+  clickedSearch(){
+    console.log("Clicked Search")
+  }
 
   removeIngredient(id){
     const index = this.ingredients.findIndex(ingredient => ingredient.name === id);

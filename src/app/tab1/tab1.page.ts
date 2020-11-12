@@ -15,7 +15,11 @@ export class Tab1Page {
     centeredSlides: true,
     loop: true,
   };
+  clickedSearch(){
+    console.log("Clicked Search")
+  }
   pushPage(){
     this.nav.navigateForward('/tab3.page')
   }
 }
+
