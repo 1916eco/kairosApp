@@ -1,6 +1,7 @@
 import { Component,ViewChild} from '@angular/core';
 import {IonSearchbar, ModalController} from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
+import { IngredientsInfoModalPage } from '../ingredients-info-modal/ingredients-info-modal.page';
 
 
 @Component({
@@ -69,9 +70,6 @@ export class Tab2Page {
     const index = this.ingredients.findIndex(inn => inn.name === id);    
     this.ingredients.splice(index,1);
     this.search.value='';
-  } 
-  updateIngredient(id){
-    console.log(id)
   }
 
 //Modal opener
@@ -88,6 +86,26 @@ export class Tab2Page {
         var newObje = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty, expire : data.data.newIngredientsExp}
         this.ingredients.push(newObje)
         console.log(data.data.newIngredientsName)
+      });
+    }
+
+    async updateIngredient(id){
+      const index = this.ingredients.findIndex(inn => inn.name === id);    
+      
+      const modal = await this.modalController.create({
+        component: IngredientsInfoModalPage,
+        swipeToClose: true,
+        componentProps: {data:this.ingredients[index],indexNumber:index}
+        // componentProps:{name: ingredient.name, balance: ingredient.qty}
+      });
+      await modal.present()
+
+      await modal.onWillDismiss().then((data) =>{
+        //const ingredient = new ingredients(data.newIngredientsName,data.newIngredientsQty);
+        var newObje = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty, expire : data.data.newIngredientsExp}
+        this.ingredients[index]
+        
+        console.log(data.data)
       });
     }
 }

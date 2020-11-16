@@ -7,12 +7,7 @@ import {ModalController} from '@ionic/angular';
   styleUrls: ['./modal.page.scss'],
 })
 export class ModalPage  {
-  constructor(private modalController: ModalController) { 
-    this.today = new Date().toISOString();
-    this.today = this.today;
-    console.log(this.today)
-  }
-  today;
+  constructor(private modalController: ModalController) {}
   nameInput = new FormControl('',Validators.required)
   ingredientInput = new FormControl('',Validators.required)
   myDate = '';

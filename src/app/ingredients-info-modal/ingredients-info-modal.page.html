@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start" size="small">View/Edit Ingredients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+      <ion-label >Name</ion-label>
+      <ion-input ngModel='{{data.name}}' [formControl]="nameInput2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantity</ion-label>
+      <ion-input  type="number" ngModel='{{data.qty}}' [formControl]="ingredientInput2"></ion-input>
+    </ion-item>
+    <ion-item  *ngIf="data.expire!='never'"> 
+      <ion-label>Does it Expire?</ion-label>
+      <ion-toggle [(ngModel)]="doesExpire"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="doesExpire||data.expire=='never'">
+      <ion-label>DD MM YYYY</ion-label>
+      <ion-datetime displayFormat="DD MM YYYY" min="2020-01-01" max="2025-12-31" value="{{data.expire}}" [(ngModel)]="myDate2"></ion-datetime>
+    </ion-item>
+<ion-button expand="full" [disabled]="ingredientInput2.invalid||nameInput2.invalid" color="primary" (click)="editIngredent()" >Submit</ion-button>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" color="primary" (click)="closeModal()">Close</ion-button>
+  </ion-toolbar>
+</ion-footer>
