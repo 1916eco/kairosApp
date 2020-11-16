@@ -19,6 +19,8 @@ export class ModalPage  {
   }
 
   addIngredent(){
+    if (this.myDate==""){
+      this.myDate = "Never"}
     let myDate: any = new Date(this.myDate)
     var obj ={
     newIngredientsName: this.nameInput.value,

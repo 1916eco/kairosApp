@@ -103,7 +103,7 @@ export class Tab2Page {
       await modal.onWillDismiss().then((data) =>{
         //const ingredient = new ingredients(data.newIngredientsName,data.newIngredientsQty);
         var newObject = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty, expire : data.data.newIngredientsExp}
-
+        
         this.ingredients[index] = newObject
         console.log(data.data)
       });

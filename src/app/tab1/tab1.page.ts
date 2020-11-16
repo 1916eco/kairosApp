@@ -18,7 +18,7 @@ export class Tab1Page {
   searched = false
 
   ngOnInit() {
-    //this.mainPage()
+    this.mainPage()
   }
 
   async mainPage(){

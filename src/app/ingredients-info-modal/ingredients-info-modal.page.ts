@@ -11,10 +11,12 @@ export class IngredientsInfoModalPage {
   nameInput2 = new FormControl('',Validators.required)
   ingredientInput2 = new FormControl('',Validators.required)
   myDate2 = '';
+  
   doesExpire= false;
   data;
   indexNumberFrom;
   editDate = false;
+  dummy;
   
 
   showEdit(){
@@ -29,7 +31,8 @@ export class IngredientsInfoModalPage {
     console.log(this.indexNumberFrom)
   }
   editIngredent(){
-    let myDate: any = new Date(this.myDate2)
+    if (this.myDate2==""){
+      this.myDate2 = "Never"}
     var obj ={
     newIngredientsName: this.nameInput2.value,
     newIngredientsQty: this.ingredientInput2.value,
