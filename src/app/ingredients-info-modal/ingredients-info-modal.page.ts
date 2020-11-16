@@ -32,7 +32,7 @@ export class IngredientsInfoModalPage {
   }
   editIngredent(){
     if (this.myDate2==""){
-      this.myDate2 = "Never"}
+      this.myDate2=this.data.expire}
     var obj ={
     newIngredientsName: this.nameInput2.value,
     newIngredientsQty: this.ingredientInput2.value,
