@@ -21,19 +21,23 @@ export class Tab2Page {
   ingredients = [
     {
       name: "Pepper",
-      qty: 99
+      qty: 99,
+      expire:"never"
     },
     {
       name: "Salt",
-      qty: 99
+      qty: 99,
+      expire:"never"
     },    
     {
       name: "Carrots",
-      qty: 15
+      qty: 15,
+      expire:"never"
     },
     {
       name: "Potatoes",
-      qty: 20
+      qty: 20,
+      expire:"never"
     },
   ];
   clickedSearch(){
@@ -66,6 +70,9 @@ export class Tab2Page {
     this.ingredients.splice(index,1);
     this.search.value='';
   } 
+  updateIngredient(id){
+    console.log(id)
+  }
 
 //Modal opener
   async openModal(){
@@ -78,7 +85,7 @@ export class Tab2Page {
 
       await modal.onWillDismiss().then((data) =>{
         //const ingredient = new ingredients(data.newIngredientsName,data.newIngredientsQty);
-        var newObje = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty}
+        var newObje = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty, expire : data.data.newIngredientsExp}
         this.ingredients.push(newObje)
         console.log(data.data.newIngredientsName)
       });

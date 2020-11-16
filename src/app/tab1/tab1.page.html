@@ -8,11 +8,11 @@
  </ion-toolbar>
   <ion-toolbar>
     <ion-buttons slot="primary">
-      <ion-button (click)="clickedSearch()">
-        <ion-icon slot="icon-only" name="search"></ion-icon>
+      <ion-button [disabled]="!listFilter" (click)="searchingRecipe(listFilter)">
+        <ion-icon slot="icon-only"  name="search"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-searchbar placeholder="Search Cookbook" animated></ion-searchbar>
+    <ion-searchbar placeholder="Search Cookbook" [(ngModel)]='listFilter' animated></ion-searchbar>
     <ion-item>
   <ion-label position="floating" >Filter</ion-label>
   <ion-select>
@@ -29,63 +29,11 @@
 <ion-content [fullscreen]="true">
   <ion-content>
 
-  <ion-toolbar>
-    <ion-label slot="start" size="medium">History</ion-label>
-  </ion-toolbar>
-
-  
-  <!-- From Here -->
+    <ion-toolbar *ngIf="searched !=false">
+      <ion-label slot="start" size="medium">Searched</ion-label>
+    </ion-toolbar>
+    
     <ion-slides  [options]="slideOpts">
-      <ion-slide>
-        <ion-row>
-        <ion-col size="12" class="poster-col">
-          <img class="poster" src="https://www.tasteandtellblog.com/wp-content/uploads/2011/05/Spaghetti-Meat-Sauce-tasteandtellblog.com-3.jpg" alt="">
-        </ion-col>        
-        <ion-col size="12">
-        <h5 class="ion-no-margin">Spaghetti</h5>
-        <p class="ion-no-margin rate">
-          <ion-icon name="star"></ion-icon> 8.5
-        </p>
-      </ion-col>
-    </ion-row>
-  </ion-slide>
-
-  <ion-slide>
-    <ion-row>
-    <ion-col size="12" class="poster-col">
-      <img class="poster" src="https://s23209.pcdn.co/wp-content/uploads/2016/10/Slow-Cooker-Beef-StewIMG_3526.jpg" alt="">
-    </ion-col>        
-    <ion-col size="12">
-    <h5 class="ion-no-margin">Beef Stew</h5>
-    <p class="ion-no-margin rate">
-      <ion-icon name="star"></ion-icon> 8.5
-    </p>
-  </ion-col>
-</ion-row>
-</ion-slide>
-
-<ion-slide>
-  <ion-row>
-  <ion-col size="12" class="poster-col">
-    <img class="poster" src="https://s23209.pcdn.co/wp-content/uploads/2017/02/Slow-Cooker-Creamy-Chicken-Noodle-SoupIMG_6504edit-720x1080.jpg" alt="">
-  </ion-col>        
-  <ion-col size="12">
-  <h5 class="ion-no-margin">Chicken Noodle Soup</h5>
-  <p class="ion-no-margin rate">
-    <ion-icon name="star"></ion-icon> 6
-  </p>
-</ion-col>
-</ion-row>
-</ion-slide>
-</ion-slides>
-<!-- To Here -->
-
-<ion-toolbar>
-  <ion-label slot="start" size="small">Using Ingredients</ion-label>
-</ion-toolbar>
-
-
-<ion-slides  [options]="slideOpts">
     <ion-slide *ngFor="let recipe of recipes">
       <ion-row>
       <ion-col size="12" class="poster-col">
@@ -97,6 +45,28 @@
   </ion-row>
     </ion-slide>
   </ion-slides>
+
+
+  <ion-toolbar>
+    <ion-label slot="start" size="small">Using Ingredients</ion-label>
+  </ion-toolbar>
+  <!-- From Here -->
+
+  <ion-slides  [options]="slideOpts">
+  <ion-slide *ngFor="let recipe2 of recipes2">
+    <ion-row>
+    <ion-col size="12" class="poster-col">
+      <img class="poster" src="{{recipe2.recipe.image}}" alt="">
+    </ion-col>        
+    <ion-col size="12">
+    <h5 class="ion-no-margin">{{recipe2.recipe.label}}</h5>
+  </ion-col>
+</ion-row>
+  </ion-slide>
+</ion-slides>
+
+
+
 
     <!-- <ion-slides  [options]="slideOpts">
 

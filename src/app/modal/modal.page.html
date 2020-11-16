@@ -13,7 +13,14 @@
       <ion-label>Quantity</ion-label>
       <ion-input  type="number" [formControl]="ingredientInput"></ion-input>
     </ion-item>
-    
+    <ion-item>
+      <ion-label>Does it Expire?</ion-label>
+      <ion-toggle [(ngModel)]="doesExpire"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="doesExpire">
+      <ion-label>DD MM YYYY</ion-label>
+      <ion-datetime displayFormat="DD MM YYYY" min="2020-01-01" max="2025-12-31" placeholder="Select Date" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
 <ion-button expand="full" [disabled]="ingredientInput.invalid||nameInput.invalid" color="primary" (click)="addIngredent()" >Submit</ion-button>
   </ion-content>
 

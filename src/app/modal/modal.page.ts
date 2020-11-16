@@ -7,9 +7,16 @@ import {ModalController} from '@ionic/angular';
   styleUrls: ['./modal.page.scss'],
 })
 export class ModalPage  {
+  constructor(private modalController: ModalController) { 
+    this.today = new Date().toISOString();
+    this.today = this.today;
+    console.log(this.today)
+  }
+  today;
   nameInput = new FormControl('',Validators.required)
   ingredientInput = new FormControl('',Validators.required)
-  constructor(private modalController: ModalController) { }
+  myDate = '';
+  doesExpire= false;
 
 
   closeModal(){
@@ -17,10 +24,13 @@ export class ModalPage  {
   }
 
   addIngredent(){
+    let myDate: any = new Date(this.myDate)
     var obj ={
     newIngredientsName: this.nameInput.value,
-    newIngredientsQty: this.ingredientInput.value
-    }
+    newIngredientsQty: this.ingredientInput.value,
+    newIngredientsExp: this.myDate
+  }
+    console.log(obj)
     this.modalController.dismiss(obj,'Done')
 
   }
