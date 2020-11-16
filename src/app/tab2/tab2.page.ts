@@ -38,7 +38,7 @@ export class Tab2Page {
     {
       name: "Potatoes",
       qty: 20,
-      expire:"never"
+      expire:"2020-12-16T01:21:38.128-00:00"
     },
   ];
   clickedSearch(){
@@ -95,16 +95,16 @@ export class Tab2Page {
       const modal = await this.modalController.create({
         component: IngredientsInfoModalPage,
         swipeToClose: true,
-        componentProps: {data:this.ingredients[index],indexNumber:index}
+        componentProps: {data:this.ingredients[index]}
         // componentProps:{name: ingredient.name, balance: ingredient.qty}
       });
       await modal.present()
 
       await modal.onWillDismiss().then((data) =>{
         //const ingredient = new ingredients(data.newIngredientsName,data.newIngredientsQty);
-        var newObje = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty, expire : data.data.newIngredientsExp}
-        this.ingredients[index]
-        
+        var newObject = { name : data.data.newIngredientsName, qty : data.data.newIngredientsQty, expire : data.data.newIngredientsExp}
+
+        this.ingredients[index] = newObject
         console.log(data.data)
       });
     }

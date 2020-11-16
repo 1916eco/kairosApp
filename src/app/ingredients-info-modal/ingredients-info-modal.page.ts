@@ -13,23 +13,30 @@ export class IngredientsInfoModalPage {
   myDate2 = '';
   doesExpire= false;
   data;
+  indexNumberFrom;
+  editDate = false;
   
+
+  showEdit(){
+    this.editDate = true
+  }
   closeModal(){
     this.modalController.dismiss(null,'cancel')
   }
   display(){
-    //console.log(this.indexNumberFrom)
+    this.indexNumberFrom = this.data.indexNumber
+    console.log(this.data)
+    console.log(this.indexNumberFrom)
   }
   editIngredent(){
     let myDate: any = new Date(this.myDate2)
     var obj ={
     newIngredientsName: this.nameInput2.value,
     newIngredientsQty: this.ingredientInput2.value,
-    newIngredientsExp: this.myDate2,
-    indexNumberFrom: this.data.indexNumber
+    newIngredientsExp: this.myDate2
   }
     console.log(obj)
-    this.modalController.dismiss(obj,'Done')
+    this.modalController.dismiss(obj,'updated')
 
   }
 }

@@ -12,12 +12,13 @@
     <ion-item>
       <ion-label>Quantity</ion-label>
       <ion-input  type="number" ngModel='{{data.qty}}' [formControl]="ingredientInput2"></ion-input>
+    </ion-item>    
+    <ion-item>
+      <ion-label>Expires</ion-label>
+      <ion-label>{{data.expire.substring(0,10)}}</ion-label>
+      <ion-button (click)="showEdit()">Edit</ion-button>
     </ion-item>
-    <ion-item  *ngIf="data.expire!='never'"> 
-      <ion-label>Does it Expire?</ion-label>
-      <ion-toggle [(ngModel)]="doesExpire"></ion-toggle>
-    </ion-item>
-    <ion-item *ngIf="doesExpire||data.expire=='never'">
+    <ion-item *ngIf="editDate">
       <ion-label>DD MM YYYY</ion-label>
       <ion-datetime displayFormat="DD MM YYYY" min="2020-01-01" max="2025-12-31" value="{{data.expire}}" [(ngModel)]="myDate2"></ion-datetime>
     </ion-item>
