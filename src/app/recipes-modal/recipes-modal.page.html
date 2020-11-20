@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">{{data.recipe.label}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <img src="{{data.recipe.image}}" alt="">
+  <div class="parallax-image">
+    <p>Ingredients</p>
+    <p *ngFor="let item of data.recipe.ingredientLines">{{item}}</p>
+    <p>Calories</p>
+    //fix calories
+    <p>{{data.recipe.calories}}</p>
+  </div>
+
+</ion-content>

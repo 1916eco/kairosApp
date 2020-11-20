@@ -27,8 +27,6 @@ export class IngredientsInfoModalPage {
   }
   display(){
     this.indexNumberFrom = this.data.indexNumber
-    console.log(this.data)
-    console.log(this.indexNumberFrom)
   }
   editIngredent(){
     if (this.myDate2==""){
@@ -38,7 +36,6 @@ export class IngredientsInfoModalPage {
     newIngredientsQty: this.ingredientInput2.value,
     newIngredientsExp: this.myDate2
   }
-    console.log(obj)
     this.modalController.dismiss(obj,'updated')
 
   }
