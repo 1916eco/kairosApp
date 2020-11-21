@@ -23,6 +23,19 @@ export class Tab1Page {
   }
 
 
+  async openRecipeModal(id){
+    const index = this.recipes.findIndex(rec => rec.recipe.label === id);
+
+    const recipeModal = await this.modalController.create({
+      component: RecipesModalPage,
+      swipeToClose: true,
+      componentProps: {data:this.recipes[index]}
+    });
+    console.log(this.recipes[index])
+    await recipeModal.present()
+  }
+
+
   async openRecipeModal2(id){
     const index = this.recipes2.findIndex(rec => rec.recipe.label === id);
 

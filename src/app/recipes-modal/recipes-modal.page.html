@@ -4,19 +4,25 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title size="small">{{data.recipe.label}}</ion-title>
+    <ion-title size="small"><b>{{data.recipe.label}}</b></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   
   <img src="{{data.recipe.image}}" alt="">
-  <div class="parallax-image">
-    <p>Ingredients</p>
+  <div class="parallax-image" >
+    <h2>Health Tags</h2>
+  <ion-badge color="primary" *ngFor="let health of data.recipe.healthLabels">{{health}}</ion-badge>
+  <ion-badge color="primary" *ngIf="data.recipe.dietLabels!= 0">{{data.recipe.dietLabels}}</ion-badge>
+    <h2>Ingredients</h2>
     <p *ngFor="let item of data.recipe.ingredientLines">{{item}}</p>
-    <p>Calories</p>
-    //fix calories
-    <p>{{data.recipe.calories}}</p>
+    <h2>Calories</h2>
+    <ion-item>{{(data.recipe.calories).toFixed(1)}}</ion-item>
+    <h2>Servings</h2>
+    <ion-item>{{data.recipe.yield}}</ion-item>
+    <h2 *ngIf="data.recipe.totalTime!= 0">Cooking time</h2>
+    <ion-item *ngIf="data.recipe.totalTime!= 0">{{(data.recipe.totalTime / 60).toFixed(1)}} Hours</ion-item>
   </div>
 
 </ion-content>
