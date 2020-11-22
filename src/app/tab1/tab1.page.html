@@ -46,11 +46,26 @@
     </ion-slide>
   </ion-slides>
 
+  <ion-toolbar>
+    <ion-label slot="start" size="small">Breakfasts</ion-label>
+  </ion-toolbar>
+  
+  <ion-slides  [options]="slideOpts">
+  <ion-slide *ngFor="let recipe3 of recipes3" (click)="openRecipeModal3(recipe3.recipe.label)">
+    <ion-row>
+    <ion-col size="12" class="poster-col">
+      <img class="poster" src="{{recipe3.recipe.image}}" alt="">
+    </ion-col>        
+    <ion-col size="12">
+    <h5 class="ion-no-margin">{{recipe3.recipe.label}}</h5>
+  </ion-col>
+  </ion-row>
+  </ion-slide>
+  </ion-slides>
 
   <ion-toolbar>
-    <ion-label slot="start" size="small">Using Ingredients</ion-label>
+    <ion-label slot="start" size="small">Soups</ion-label>
   </ion-toolbar>
-  <!-- From Here -->
 
   <ion-slides  [options]="slideOpts">
   <ion-slide *ngFor="let recipe2 of recipes2" (click)="openRecipeModal2(recipe2.recipe.label)">
@@ -67,52 +82,5 @@
 
 
 
-
-    <!-- <ion-slides  [options]="slideOpts">
-
-      <ion-slide>
-        <ion-row>
-        <ion-col size="12" class="poster-col">
-          <img class="poster" src="https://www.cookingclassy.com/wp-content/uploads/2019/08/breakfast-burrito-01.jpg" alt="">
-        </ion-col>        
-        <ion-col size="12">
-        <h5 class="ion-no-margin">Burrito</h5>
-        <p class="ion-no-margin rate">
-          <ion-icon name="star"></ion-icon> 5
-        </p>
-      </ion-col>
-    </ion-row>
-  </ion-slide>
-
-  <ion-slide>
-    <ion-row>
-    <ion-col size="12" class="poster-col">
-      <img class="poster" src="https://simpleveganblog.com/wp-content/uploads/2019/12/Vegan-Mac-and-Cheese-3.jpg" alt="">
-    </ion-col>        
-    <ion-col size="12">
-    <h5 class="ion-no-margin">Mac and Cheese</h5>
-    <p class="ion-no-margin rate">
-      <ion-icon name="star"></ion-icon> 6.5
-    </p>
-  </ion-col>
-</ion-row>
-</ion-slide>
-
-<ion-slide>
-  <ion-row>
-  <ion-col size="12" class="poster-col">
-    <img class="poster" src="https://cookingmadehealthy.com/wp-content/uploads/2019/01/Indian-Curry-Chicken-2.jpg" alt="">
-  </ion-col>        
-  <ion-col size="12">
-  <h5 class="ion-no-margin">Chicken curry</h5>
-  <p class="ion-no-margin rate">
-    <ion-icon name="star"></ion-icon> 7
-  </p>
-</ion-col>
-</ion-row>
-</ion-slide>
-
-
-    </ion-slides> -->
   </ion-content>
 </ion-content>

@@ -10,8 +10,6 @@ export class RecipesModalPage implements OnInit {
   constructor(private modalController: ModalController) { }
   data;
 
-
-
   ngOnInit() {
     console.log(this.data)
   }

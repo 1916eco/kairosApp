@@ -15,13 +15,23 @@ export class Tab1Page {
   constructor(private nav:NavController,private modalController: ModalController) {}
   recipes = []
   recipes2 = []
+  recipes3 = []
   listFilter='';
   searched = false
 
   ngOnInit() {
     this.mainPage()
+    this.getApi()
   }
 
+  async getApi(){
+    var appId = "66e70773"
+    var appKey = "cc03af7094cde3a4ce6cf1b91e277f6c"
+    const response = await fetch(`https://api.edamam.com/search?q=eggs&app_id=${appId}&app_key=${appKey}`);
+    const data = await response.json();
+    this.recipes3 = data.hits;
+    console.log(data.hits);
+  }
 
   async openRecipeModal(id){
     const index = this.recipes.findIndex(rec => rec.recipe.label === id);
@@ -35,7 +45,6 @@ export class Tab1Page {
     await recipeModal.present()
   }
 
-
   async openRecipeModal2(id){
     const index = this.recipes2.findIndex(rec => rec.recipe.label === id);
 
@@ -45,6 +54,17 @@ export class Tab1Page {
       componentProps: {data:this.recipes2[index]}
     });
     console.log(this.recipes2[index])
+    await recipeModal.present()
+  }
+
+  async openRecipeModal3(id){
+    const index = this.recipes3.findIndex(rec => rec.recipe.label === id);
+
+    const recipeModal = await this.modalController.create({
+      component: RecipesModalPage,
+      swipeToClose: true,
+      componentProps: {data:this.recipes3[index]}
+    });
     await recipeModal.present()
   }
 
@@ -64,10 +84,7 @@ export class Tab1Page {
     initialSlide: 2,
     loopAdditionalSlides:0
   };
-  clickedSearch(){
-    console.log("Clicked Search")
-    //this.getRecipes(listFilter)
-  }
+
   pushPage(){
     this.nav.navigateForward('/tab3.page')
   }

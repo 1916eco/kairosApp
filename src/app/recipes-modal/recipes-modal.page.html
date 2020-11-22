@@ -22,7 +22,7 @@
     <h2>Servings</h2>
     <ion-item>{{data.recipe.yield}}</ion-item>
     <h2 *ngIf="data.recipe.totalTime!= 0">Cooking time</h2>
-    <ion-item *ngIf="data.recipe.totalTime!= 0">{{(data.recipe.totalTime / 60).toFixed(1)}} Hours</ion-item>
+    <ion-item *ngIf="data.recipe.totalTime!= 0">{{(data.recipe.totalTime / 60).toFixed(1)}} Hour(s)</ion-item>
   </div>
 
 </ion-content>
