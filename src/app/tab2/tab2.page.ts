@@ -34,9 +34,34 @@ export class Tab2Page {
       name: "Carrots",
       qty: 15,
       expire:"never"
+    },    
+    {
+      name: "Onions",
+      qty: 11,
+      expire:"never"
+    },    
+    {
+      name: "Eggs",
+      qty: 17,
+      expire:"never"
     },
     {
-      name: "Potatoes",
+      name: "Avocados",
+      qty: 5,
+      expire:"never"
+    },
+    {
+      name: "Corn",
+      qty: 2,
+      expire:"never"
+    },
+    {
+      name: "Chicken",
+      qty: 12,
+      expire:"never"
+    },
+    {
+      name: "Pasta",
       qty: 20,
       expire:"2020-12-16T01:21:38.128-00:00"
     },
