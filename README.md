@@ -1,6 +1,10 @@
 # Kairos App
 
-The application is made in Angular you need to have node installed already
+This application is a recipe finder application with features of adding ingredients to users' inventory.
+
+![Alt Text](appImage\app.gif)
+
+The application is made in Ionic with Angular. This application can be built for both IOS and Android devices.
 
 ## npm install -g @ionic/cli
 
